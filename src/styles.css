@@ -1,0 +1,752 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * ─────────────────────────────────────────────────────────────────────────────
+ * "Aurora Glass" — frosted light design system
+ * Mohammad Shahnawaz Khan — AI Video Generalist
+ *
+ * A cool near-white canvas with slow ultraviolet light drifting behind it.
+ * Every surface is translucent, so the colour underneath shows through the
+ * frost. Nothing is a flat card; everything is a pane of glass on light.
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 8px);
+  --radius-md: calc(var(--radius) - 4px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 6px);
+  --radius-2xl: calc(var(--radius) + 12px);
+  --radius-3xl: calc(var(--radius) + 20px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Ultraviolet accent ramp */
+  --color-uv: var(--uv);
+  --color-uv-bright: var(--uv-bright);
+  --color-uv-deep: var(--uv-deep);
+  --color-cyan-edge: var(--cyan-edge);
+  /* legacy alias — older markup that still says `gold` reads ultraviolet */
+  --color-gold: var(--uv);
+  --color-gold-soft: var(--uv-bright);
+
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+:root {
+  --radius: 1rem;
+
+  /* canvas — cool near-white with a violet cast */
+  --background: oklch(0.977 0.007 290);
+  --foreground: oklch(0.215 0.032 288);
+
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.215 0.032 288);
+
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.215 0.032 288);
+
+  /* ultraviolet */
+  --uv: oklch(0.525 0.242 295);
+  --uv-bright: oklch(0.665 0.203 300);
+  --uv-deep: oklch(0.395 0.198 291);
+  --cyan-edge: oklch(0.735 0.135 235);
+  --rose-edge: oklch(0.755 0.145 350);
+
+  --gold: var(--uv);
+  --gold-soft: var(--uv-bright);
+
+  --primary: var(--uv);
+  --primary-foreground: oklch(0.99 0.004 290);
+
+  --secondary: oklch(0.948 0.012 290);
+  --secondary-foreground: oklch(0.215 0.032 288);
+
+  --muted: oklch(0.945 0.012 290);
+  --muted-foreground: oklch(0.492 0.032 288);
+
+  --accent: var(--uv);
+  --accent-foreground: oklch(0.99 0.004 290);
+
+  --destructive: oklch(0.58 0.215 20);
+  --destructive-foreground: oklch(0.99 0.004 290);
+
+  --border: oklch(0.3 0.05 290 / 10%);
+  --input: oklch(0.3 0.05 290 / 16%);
+  --ring: var(--uv);
+
+  --sidebar: oklch(0.99 0.006 290);
+  --sidebar-foreground: oklch(0.215 0.032 288);
+  --sidebar-primary: var(--uv);
+  --sidebar-primary-foreground: oklch(0.99 0.004 290);
+  --sidebar-accent: oklch(0.945 0.012 290);
+  --sidebar-accent-foreground: oklch(0.215 0.032 288);
+  --sidebar-border: oklch(0.3 0.05 290 / 10%);
+  --sidebar-ring: var(--uv);
+
+  /* glass recipe — one place to retune every surface */
+  --glass-top: oklch(1 0 0 / 74%);
+  --glass-bottom: oklch(1 0 0 / 44%);
+  --glass-edge: oklch(1 0 0 / 78%);
+  --glass-ring: oklch(0.3 0.05 290 / 7%);
+  --glass-blur: 20px;
+
+  /* motion */
+  --ease-glass: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-swift: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 200ms;
+  --dur-base: 420ms;
+  --dur-slow: 720ms;
+
+  --nav-h: 4.5rem;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--nav-h) + 1.5rem);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    font-synthesis-weight: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+  }
+
+  ::selection {
+    background: color-mix(in oklab, var(--uv) 24%, transparent);
+    color: var(--foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--uv);
+    outline-offset: 3px;
+    border-radius: 8px;
+  }
+
+  @supports (scrollbar-width: thin) {
+    html {
+      scrollbar-width: thin;
+      scrollbar-color: color-mix(in oklab, var(--uv) 32%, transparent) transparent;
+    }
+  }
+
+  img,
+  video {
+    max-width: 100%;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+/* ───────────────────────────── keyframes ───────────────────────────── */
+
+@keyframes ag-marquee {
+  from { transform: translate3d(0, 0, 0); }
+  to { transform: translate3d(-50%, 0, 0); }
+}
+
+@keyframes ag-marquee-reverse {
+  from { transform: translate3d(-50%, 0, 0); }
+  to { transform: translate3d(0, 0, 0); }
+}
+
+@keyframes ag-orb-a {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  50% { transform: translate3d(6vw, -4vh, 0) scale(1.12); }
+}
+
+@keyframes ag-orb-b {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1.05); }
+  50% { transform: translate3d(-7vw, 5vh, 0) scale(0.94); }
+}
+
+@keyframes ag-orb-c {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(0.96); }
+  50% { transform: translate3d(4vw, 6vh, 0) scale(1.14); }
+}
+
+@keyframes ag-sheen {
+  from { transform: translate3d(-130%, 0, 0) skewX(-18deg); }
+  to { transform: translate3d(230%, 0, 0) skewX(-18deg); }
+}
+
+@keyframes ag-ping {
+  0% { opacity: 0.7; transform: scale(0.8); }
+  70%, 100% { opacity: 0; transform: scale(2.2); }
+}
+
+@keyframes ag-drift {
+  0%, 100% { transform: translate3d(0, 0, 0); }
+  50% { transform: translate3d(0, -8px, 0); }
+}
+
+/* ───────────────────────── the light behind the glass ───────────────────── */
+
+/* Fixed field of slow ultraviolet light. Panes are translucent, so this is
+   what they pick up — it is the whole reason the UI reads as glass. */
+@utility bloom-field {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+  background:
+    radial-gradient(90% 60% at 50% -10%, color-mix(in oklab, var(--uv) 10%, transparent), transparent 70%),
+    linear-gradient(180deg, var(--background), oklch(0.965 0.012 288));
+}
+
+@utility bloom-orb {
+  position: absolute;
+  border-radius: 999px;
+  filter: none;
+  will-change: transform;
+  @media (prefers-reduced-motion: reduce) {
+    animation: none !important;
+  }
+}
+
+@utility bloom-a {
+  background: radial-gradient(
+    circle at 50% 50%,
+    color-mix(in oklab, var(--uv) 34%, transparent),
+    transparent 68%
+  );
+  animation: ag-orb-a 26s ease-in-out infinite;
+}
+
+@utility bloom-b {
+  background: radial-gradient(
+    circle at 50% 50%,
+    color-mix(in oklab, var(--cyan-edge) 32%, transparent),
+    transparent 68%
+  );
+  animation: ag-orb-b 32s ease-in-out infinite;
+}
+
+@utility bloom-c {
+  background: radial-gradient(
+    circle at 50% 50%,
+    color-mix(in oklab, var(--rose-edge) 26%, transparent),
+    transparent 68%
+  );
+  animation: ag-orb-c 38s ease-in-out infinite;
+}
+
+/* Fine grain — keeps large glass areas from banding */
+@utility grain {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.03;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+}
+
+/* ───────────────────────────── glass surfaces ───────────────────────────── */
+
+/* The one box language. Everything on this site is a pane. */
+@utility pane {
+  position: relative;
+  border-radius: 1.75rem;
+  background: linear-gradient(155deg, var(--glass-top), var(--glass-bottom));
+  backdrop-filter: blur(var(--glass-blur)) saturate(165%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(165%);
+  border: 1px solid var(--glass-edge);
+  box-shadow:
+    inset 0 1px 0 0 oklch(1 0 0 / 90%),
+    inset 0 -1px 0 0 oklch(1 0 0 / 35%),
+    0 0 0 1px var(--glass-ring),
+    0 2px 6px -2px oklch(0.28 0.06 290 / 10%),
+    0 28px 56px -34px oklch(0.36 0.16 295 / 40%);
+  transition:
+    transform var(--dur-slow) var(--ease-glass),
+    box-shadow var(--dur-slow) var(--ease-glass),
+    border-color var(--dur-base) ease;
+  @media (prefers-reduced-motion: reduce) {
+    transition: none;
+  }
+}
+
+/* legacy alias so any older markup keeps the same surface */
+@utility panel {
+  position: relative;
+  border-radius: 1.75rem;
+  background: linear-gradient(155deg, var(--glass-top), var(--glass-bottom));
+  backdrop-filter: blur(var(--glass-blur)) saturate(165%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(165%);
+  border: 1px solid var(--glass-edge);
+  box-shadow:
+    inset 0 1px 0 0 oklch(1 0 0 / 90%),
+    0 0 0 1px var(--glass-ring),
+    0 28px 56px -34px oklch(0.36 0.16 295 / 40%);
+}
+
+/* Lift on hover — opt in, so dense rows stay still */
+@utility pane-lift {
+  &:hover {
+    transform: translate3d(0, -5px, 0);
+    border-color: color-mix(in oklab, var(--uv) 30%, var(--glass-edge));
+    box-shadow:
+      inset 0 1px 0 0 oklch(1 0 0 / 95%),
+      0 0 0 1px color-mix(in oklab, var(--uv) 14%, transparent),
+      0 4px 10px -4px oklch(0.28 0.06 290 / 12%),
+      0 44px 80px -38px oklch(0.36 0.16 295 / 55%);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    &:hover {
+      transform: none;
+    }
+  }
+}
+
+/* Violet-washed pane for the one featured card in a group */
+@utility pane-uv {
+  position: relative;
+  border-radius: 1.75rem;
+  background:
+    linear-gradient(
+      155deg,
+      color-mix(in oklab, var(--uv) 14%, oklch(1 0 0 / 72%)),
+      color-mix(in oklab, var(--cyan-edge) 9%, oklch(1 0 0 / 46%))
+    );
+  backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(180%);
+  border: 1px solid color-mix(in oklab, var(--uv) 22%, oklch(1 0 0 / 70%));
+  box-shadow:
+    inset 0 1px 0 0 oklch(1 0 0 / 85%),
+    0 0 0 1px color-mix(in oklab, var(--uv) 10%, transparent),
+    0 30px 64px -32px oklch(0.4 0.2 296 / 55%);
+}
+
+/* Quieter pane for secondary notes — less blur, no ring */
+@utility pane-soft {
+  position: relative;
+  border-radius: 1.5rem;
+  background: oklch(1 0 0 / 50%);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  border: 1px solid oklch(1 0 0 / 62%);
+  box-shadow: inset 0 1px 0 0 oklch(1 0 0 / 70%);
+}
+
+/* Frosted bar for the floating navigation */
+@utility pane-bar {
+  background: linear-gradient(180deg, oklch(1 0 0 / 76%), oklch(1 0 0 / 58%));
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border: 1px solid oklch(1 0 0 / 75%);
+  box-shadow:
+    inset 0 1px 0 0 oklch(1 0 0 / 95%),
+    0 0 0 1px var(--glass-ring),
+    0 20px 44px -30px oklch(0.36 0.16 295 / 45%);
+}
+
+/* Media held inside glass — rounded, inset-lit, clipped */
+@utility pane-media {
+  position: relative;
+  overflow: hidden;
+  border-radius: 1.5rem;
+  border: 1px solid oklch(1 0 0 / 70%);
+  background: oklch(1 0 0 / 40%);
+  box-shadow:
+    inset 0 1px 0 0 oklch(1 0 0 / 80%),
+    0 0 0 1px var(--glass-ring),
+    0 26px 54px -34px oklch(0.36 0.16 295 / 45%);
+  isolation: isolate;
+}
+
+/* ───────────────────────────── accents ───────────────────────────── */
+
+@utility uv-text {
+  background: linear-gradient(
+    100deg,
+    var(--uv-deep),
+    var(--uv) 38%,
+    var(--uv-bright) 64%,
+    var(--cyan-edge)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility uv-glow {
+  box-shadow:
+    0 0 0 1px color-mix(in oklab, var(--uv) 30%, transparent),
+    0 14px 40px -16px color-mix(in oklab, var(--uv) 60%, transparent);
+}
+
+@utility uv-rail {
+  background: linear-gradient(
+    180deg,
+    transparent,
+    color-mix(in oklab, var(--uv) 55%, transparent) 12%,
+    color-mix(in oklab, var(--cyan-edge) 45%, transparent) 88%,
+    transparent
+  );
+}
+
+/* Soft glowing separator, replaces every hard section border */
+@utility divider-glow {
+  height: 1px;
+  border: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    color-mix(in oklab, var(--uv) 28%, transparent) 20%,
+    color-mix(in oklab, var(--cyan-edge) 26%, transparent) 50%,
+    color-mix(in oklab, var(--uv) 28%, transparent) 80%,
+    transparent
+  );
+}
+
+/* ───────────────────────────── type ───────────────────────────── */
+
+@utility type-display {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  line-height: 0.95;
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--muted-foreground);
+}
+
+@utility mono-cap {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+}
+
+@utility tnum {
+  font-variant-numeric: tabular-nums;
+}
+
+/* ───────────────────────────── layout ───────────────────────────── */
+
+@utility container-page {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 82rem;
+  padding-inline: 1.25rem;
+  @media (min-width: 640px) { padding-inline: 2rem; }
+  @media (min-width: 1280px) { padding-inline: 3rem; }
+}
+
+@utility container-prose {
+  margin-inline: auto;
+  width: 100%;
+  max-width: 74rem;
+  padding-inline: 1.25rem;
+  @media (min-width: 640px) { padding-inline: 2.5rem; }
+}
+
+@utility section-pad {
+  padding-block: 5.5rem;
+  @media (min-width: 640px) { padding-block: 7.5rem; }
+  @media (min-width: 1024px) { padding-block: 9rem; }
+}
+
+@utility cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
+/* ───────────────────────────── chips & controls ───────────────────────── */
+
+@utility chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.4rem 0.85rem;
+  background: oklch(1 0 0 / 58%);
+  backdrop-filter: blur(10px) saturate(150%);
+  -webkit-backdrop-filter: blur(10px) saturate(150%);
+  border: 1px solid oklch(1 0 0 / 70%);
+  box-shadow:
+    inset 0 1px 0 0 oklch(1 0 0 / 80%),
+    0 0 0 1px var(--glass-ring);
+  transition:
+    border-color var(--dur-fast) ease,
+    background-color var(--dur-fast) ease,
+    transform var(--dur-fast) var(--ease-glass);
+  @media (prefers-reduced-motion: reduce) { transition: none; }
+}
+
+@utility chip-uv {
+  background: color-mix(in oklab, var(--uv) 12%, oklch(1 0 0 / 60%));
+  border-color: color-mix(in oklab, var(--uv) 28%, transparent);
+  color: var(--uv-deep);
+}
+
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  padding: 0.9rem 1.75rem;
+  transition:
+    transform var(--dur-fast) var(--ease-glass),
+    box-shadow var(--dur-base) var(--ease-glass),
+    background-color var(--dur-fast) ease,
+    color var(--dur-fast) ease,
+    border-color var(--dur-fast) ease;
+  &:active { transform: translate3d(0, 1px, 0) scale(0.99); }
+  @media (prefers-reduced-motion: reduce) {
+    transition: background-color var(--dur-fast) ease, color var(--dur-fast) ease;
+    &:active { transform: none; }
+  }
+}
+
+@utility btn-uv {
+  position: relative;
+  overflow: hidden;
+  color: var(--primary-foreground);
+  border: 1px solid color-mix(in oklab, var(--uv-deep) 45%, transparent);
+  background: linear-gradient(135deg, var(--uv-bright), var(--uv) 55%, var(--uv-deep));
+  box-shadow:
+    inset 0 1px 0 0 oklch(1 0 0 / 35%),
+    0 12px 30px -14px color-mix(in oklab, var(--uv) 70%, transparent);
+  &::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 40%;
+    background: linear-gradient(90deg, transparent, oklch(1 0 0 / 42%), transparent);
+    transform: translate3d(-130%, 0, 0) skewX(-18deg);
+    pointer-events: none;
+  }
+  &:hover {
+    transform: translate3d(0, -2px, 0);
+    box-shadow:
+      inset 0 1px 0 0 oklch(1 0 0 / 45%),
+      0 20px 44px -16px color-mix(in oklab, var(--uv) 85%, transparent);
+  }
+  &:hover::after { animation: ag-sheen 900ms var(--ease-glass); }
+  @media (prefers-reduced-motion: reduce) {
+    &:hover { transform: none; }
+    &:hover::after { animation: none; }
+  }
+}
+
+@utility btn-glass {
+  color: var(--foreground);
+  background: oklch(1 0 0 / 55%);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border: 1px solid oklch(1 0 0 / 72%);
+  box-shadow:
+    inset 0 1px 0 0 oklch(1 0 0 / 85%),
+    0 0 0 1px var(--glass-ring);
+  &:hover {
+    transform: translate3d(0, -2px, 0);
+    color: var(--uv-deep);
+    border-color: color-mix(in oklab, var(--uv) 35%, transparent);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    &:hover { transform: none; }
+  }
+}
+
+@utility field {
+  width: 100%;
+  border-radius: 0.95rem;
+  border: 1px solid oklch(1 0 0 / 70%);
+  background: oklch(1 0 0 / 55%);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.85rem 1.05rem;
+  font-size: 0.875rem;
+  color: var(--foreground);
+  outline: none;
+  box-shadow:
+    inset 0 1px 0 0 oklch(1 0 0 / 70%),
+    0 0 0 1px var(--glass-ring);
+  transition:
+    border-color var(--dur-fast) ease,
+    box-shadow var(--dur-fast) ease,
+    background-color var(--dur-fast) ease;
+  &::placeholder { color: color-mix(in oklab, var(--muted-foreground) 80%, transparent); }
+  &:focus {
+    background: oklch(1 0 0 / 78%);
+    border-color: color-mix(in oklab, var(--uv) 50%, transparent);
+    box-shadow:
+      inset 0 1px 0 0 oklch(1 0 0 / 80%),
+      0 0 0 4px color-mix(in oklab, var(--uv) 14%, transparent);
+  }
+}
+
+@utility status-dot {
+  position: relative;
+  display: inline-flex;
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 999px;
+  background: oklch(0.72 0.17 160);
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 999px;
+    background: inherit;
+    animation: ag-ping 2.6s var(--ease-glass) infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    &::after { animation: none; }
+  }
+}
+
+/* ───────────────────────────── motion helpers ───────────────────────── */
+
+@utility marquee-track {
+  display: flex;
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: ag-marquee var(--marquee-duration, 48s) linear infinite;
+  will-change: transform;
+  @media (prefers-reduced-motion: reduce) { animation: none; }
+}
+
+@utility marquee-track-reverse {
+  display: flex;
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: ag-marquee-reverse var(--marquee-duration, 48s) linear infinite;
+  will-change: transform;
+  @media (prefers-reduced-motion: reduce) { animation: none; }
+}
+
+@utility marquee-mask {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+}
+
+/* Horizontal step track: scrollable, but without a scrollbar cutting the glass */
+@utility no-bar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Film sprocket holes — the one literal nod to the subject, used once */
+@utility sprockets {
+  background-image: radial-gradient(
+    circle at 6px 50%,
+    color-mix(in oklab, var(--uv) 22%, transparent) 0 2.5px,
+    transparent 3px
+  );
+  background-size: 20px 100%;
+  background-repeat: repeat-x;
+}
+
+@utility drift-y {
+  animation: ag-drift 6s ease-in-out infinite;
+  @media (prefers-reduced-motion: reduce) { animation: none; }
+}
+
+@utility link-line {
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 1px;
+    width: 100%;
+    transform: scaleX(0);
+    transform-origin: left;
+    background: linear-gradient(90deg, var(--uv), var(--cyan-edge));
+    transition: transform var(--dur-base) var(--ease-glass);
+  }
+  &:hover::after,
+  &:focus-visible::after { transform: scaleX(1); }
+  @media (prefers-reduced-motion: reduce) {
+    &::after { transition: none; }
+  }
+}
+
+/* ───────────────────────── global motion safety ───────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
