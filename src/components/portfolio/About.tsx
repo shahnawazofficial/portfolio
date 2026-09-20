@@ -77,7 +77,7 @@ export function About() {
               </span>
             </Reveal>
 
-            <h2 className="type-display mt-6 text-[clamp(2.2rem,5.6vw,4.2rem)] text-foreground">
+            <h2 className="type-display mt-6 text-[clamp(2.55rem,6.8vw,4.85rem)] font-bold tracking-[-0.035em] leading-[1.05] text-foreground">
               <RevealLines text="A storyteller," as="span" className="block" />
               <RevealLines
                 text="rewired for the AI era."
@@ -87,28 +87,27 @@ export function About() {
               />
             </h2>
 
+            <p className="mt-5 text-[clamp(1.18rem,1.85vw,1.45rem)] font-normal leading-[1.6] text-foreground/85">
+              Directing vertical episodic micro-dramas and cinematic films with complete end-to-end generative pipelines.
+            </p>
+
             <Reveal delay={2}>
-              <div className="mt-8 space-y-5 text-[16.5px] leading-[1.75] text-muted-foreground">
+              <div className="mt-6 space-y-4 text-[15px] leading-[1.7] text-muted-foreground">
                 <p>
-                  I&rsquo;ve spent the last{" "}
-                  <span className="font-semibold text-foreground">two years</span>{" "}
-                  cutting film and pioneering generative video pipelines, currently
-                  working majorly on{" "}
+                  Over the last{" "}
+                  <span className="font-semibold text-foreground">two years</span>,
+                  I&rsquo;ve combined classic directorial craft — dramatic tension,
+                  pacing, cliffhangers — with cutting-edge AI generation, currently
+                  focusing majorly on{" "}
                   <span className="font-semibold text-foreground">
-                    AI micro-drama creation
+                    micro-drama creation
                   </span>
-                  . My practice unites cinematic storytelling discipline (pacing,
-                  cliffhangers, emotional tension) with next-generation generative
-                  workflows (character reference locks, voice synthesis, motion control).
+                  .
                 </p>
                 <p>
-                  I engineer high-hook vertical episodic series for platforms like
-                  ReelShort, DramaBox, and YouTube Shorts, alongside cinematic brand
-                  ads and narrative projects — including a{" "}
-                  <span className="font-semibold text-foreground">
-                    eight-minute AI short film
-                  </span>{" "}
-                  built end to end across eight generative tools.
+                  From character face consistency and scene geography locking to voice synthesis,
+                  sound design, and 9:16 vertical delivery — every project is built end to end
+                  with rapid 3–4 day turnaround.
                 </p>
               </div>
             </Reveal>

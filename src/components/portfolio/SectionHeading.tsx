@@ -73,7 +73,7 @@ export function SectionHeading({
         {lead && (
           <Reveal delay={2}>
             <p
-              className={`mt-6 text-[16.5px] leading-[1.7] text-muted-foreground ${
+              className={`mt-5 text-[clamp(1.18rem,1.85vw,1.45rem)] font-normal leading-[1.6] text-foreground/85 ${
                 centered ? "mx-auto max-w-[56ch]" : "max-w-[58ch]"
               }`}
             >

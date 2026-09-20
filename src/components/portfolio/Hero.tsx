@@ -56,11 +56,11 @@ export function Hero() {
           >
             <span className="chip">
               <span className="status-dot" aria-hidden />
-              <span className="mono-cap text-foreground/70">Available for 2026</span>
+              <span className="mono-cap text-foreground/75 font-semibold">Mohammad Shahnawaz Khan</span>
             </span>
             <span className="chip chip-uv">
               <Sparkles className="h-3 w-3" strokeWidth={2} aria-hidden />
-              <span className="mono-cap">Focus: AI Micro-Drama Creation</span>
+              <span className="mono-cap">Director &amp; AI Producer · Available 2026</span>
             </span>
           </motion.div>
 
@@ -70,7 +70,7 @@ export function Hero() {
             transition={{ duration: 0.75, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
             className="type-display mt-7 text-[clamp(2.85rem,8.5vw,6.5rem)] font-bold tracking-[-0.035em] leading-[1.04] text-foreground"
           >
-            Directing Cinematic <br className="hidden sm:inline" />
+            Directing Next-Gen <br className="hidden sm:inline" />
             <span className="uv-text">AI Micro-Dramas</span> &amp; Films
           </motion.h1>
 
@@ -78,11 +78,11 @@ export function Hero() {
             initial={{ opacity: 0, y: 22 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.25, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-8 max-w-2xl text-[clamp(1rem,1.6vw,1.2rem)] leading-[1.7] text-muted-foreground"
+            className="mt-6 max-w-3xl text-[clamp(1.15rem,1.85vw,1.38rem)] font-normal leading-[1.65] text-foreground/80"
           >
-            Two years cutting film and pioneering generative pipelines, working majorly on
-            AI micro-drama creation. Delivering high-hook episodic series, cinematic films,
-            and viral ads — written, directed, generated, and scored end to end.
+            Directing and producing vertical episodic micro-dramas, commercial video ads,
+            and cinematic short films — engineered for high retention, multi-character
+            continuity, and rapid 3–4 day turnaround.
           </motion.p>
 
           <motion.div

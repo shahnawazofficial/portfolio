@@ -479,6 +479,9 @@ export function Projects() {
               <h2 className="type-display mt-4 text-[clamp(2.35rem,6vw,4.5rem)] font-bold tracking-[-0.035em] leading-[1.05] text-foreground">
                 Selected work, <span className="uv-text">2025&nbsp;&mdash;&nbsp;2026.</span>
               </h2>
+              <p className="mt-3 text-[clamp(1.15rem,1.85vw,1.4rem)] font-normal leading-[1.6] text-foreground/80">
+                Vertical micro-drama series, narrative short films, and high-converting commercial video ads.
+              </p>
             </div>
 
             <p className="mono-cap shrink-0 text-muted-foreground md:text-right">

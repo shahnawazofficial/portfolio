@@ -29,25 +29,23 @@ const steps: ProcessStep[] = [
     step: "01",
     duration: "Day 1",
     icon: Compass,
-    title: "Concept & Hook Architecture",
-    lead: "Define retention hook, narrative arc, and visual language.",
+    title: "Hook & Treatment",
+    lead: "3-second viral hook, pacing arc, and visual style locked.",
     tasks: [
-      "Target audience analysis and 3-second hook formulation",
-      "Visual style reference board & lighting direction",
-      "Format specifications (9:16 vertical micro-drama / 16:9 widescreen)",
+      "3s hook & cliffhanger design",
+      "9:16 / 16:9 format & visual tone",
     ],
-    deliverable: "Creative Treatment & Project Brief",
+    deliverable: "Creative Treatment & Brief",
   },
   {
     step: "02",
     duration: "Day 1–2",
     icon: FileText,
-    title: "Script & Character Consistency",
-    lead: "Scene-by-scene script with character seed locks.",
+    title: "Script & Characters",
+    lead: "Scene beats, dialogue timing, and character seed locks.",
     tasks: [
-      "Beat sheet, dialogue timing & dramatic cliffhangers",
-      "Multi-angle character reference generation (Midjourney / Seedream)",
-      "Wardrobe, facial structure & scene geography locking",
+      "Cliffhanger beat sheet",
+      "Multi-angle face & wardrobe locks",
     ],
     deliverable: "Locked Script & Character Bible",
   },
@@ -55,40 +53,37 @@ const steps: ProcessStep[] = [
     step: "03",
     duration: "Day 2–3",
     icon: Sparkles,
-    title: "AI Video Generation & Motion",
-    lead: "Directing cinematic video synthesis with AI models.",
+    title: "AI Video Synthesis",
+    lead: "Cinematic camera movement and character acting.",
     tasks: [
-      "Model-directed synthesis in Kling 3.0, Seedance 2 & Veo 3.1",
-      "Precise camera motion (dolly, tracking, pan) & subject control",
-      "Emotive character acting, expressions & lip-syncing",
+      "Kling 3.0, Seedance 2 & Veo 3.1",
+      "Motion direction & lip-syncing",
     ],
-    deliverable: "Curated 4K/HD Video Stems",
+    deliverable: "Curated 4K Video Stems",
   },
   {
     step: "04",
     duration: "Day 3–4",
     icon: Scissors,
-    title: "Editorial, Sound & Color Master",
-    lead: "Post-production assembly and sound mastering.",
+    title: "Edit & Sound Master",
+    lead: "Premiere assembly, Foley, and cinematic audio mix.",
     tasks: [
-      "Narrative pacing, timing cuts & scene transitions in Premiere",
-      "Multi-layer cinematic sound design, SFX & dynamic Foley",
-      "Dialogue mix, atmospheric score & unified cinematic LUT grade",
+      "Fast-paced retention cuts",
+      "Cinematic SFX, score & color grade",
     ],
-    deliverable: "Master Cut Timeline & Mix",
+    deliverable: "Master Cut & Audio Mix",
   },
   {
     step: "05",
     duration: "Day 4",
     icon: CheckCircle2,
-    title: "Platform Masters & Revisions",
-    lead: "Turnkey delivery optimized for every channel.",
+    title: "Platform Masters",
+    lead: "Turnkey delivery optimized for social and streaming.",
     tasks: [
-      "Clean 4K exports in 9:16 vertical and 16:9 widescreen",
-      "High-CTR thumbnail key art & audio stem exports",
-      "Two fast revision rounds for final client sign-off",
+      "Clean 4K exports (9:16 & 16:9)",
+      "High-CTR thumbnail key art",
     ],
-    deliverable: "Final Platform Masters + Key Art",
+    deliverable: "Final Platform Masters",
   },
 ];
 
@@ -172,7 +167,7 @@ export function Process() {
               <Reveal key={s.step} delay={i}>
                 <div
                   onMouseEnter={() => setActiveIndex(i)}
-                  className={`group relative flex h-full flex-col justify-between rounded-xl p-4 transition-all duration-300 sm:p-4.5 ${
+                  className={`group relative flex h-full flex-col justify-between rounded-xl p-3.5 transition-all duration-300 sm:p-4 ${
                     isSelected
                       ? "pane-uv border-uv/40 ring-1 ring-uv/30 shadow-[0_10px_24px_-10px_var(--uv)]"
                       : "pane hover:-translate-y-1 hover:border-uv/25"
@@ -180,9 +175,9 @@ export function Process() {
                 >
                   <div>
                     {/* Header */}
-                    <div className="mb-3 flex items-center justify-between gap-2.5">
+                    <div className="mb-2.5 flex items-center justify-between gap-2">
                       <span
-                        className={`inline-flex h-8.5 w-8.5 items-center justify-center rounded-lg border transition-all duration-300 ${
+                        className={`inline-flex h-8 w-8 items-center justify-center rounded-lg border transition-all duration-300 ${
                           isSelected
                             ? "border-white/60 bg-linear-to-br from-uv-bright to-uv text-white shadow-xs"
                             : "border-border/80 bg-foreground/[0.03] text-foreground/80 group-hover:border-uv/30 group-hover:text-uv"
@@ -191,29 +186,29 @@ export function Process() {
                         <s.icon className="h-3.5 w-3.5" strokeWidth={1.8} aria-hidden />
                       </span>
                       <div className="flex items-center gap-1.5">
-                        <span className="mono-cap text-[10.5px] font-bold text-muted-foreground/60">
+                        <span className="mono-cap text-[10px] font-bold text-muted-foreground/60">
                           {s.step}
                         </span>
-                        <span className="chip chip-uv !px-2 !py-0.5 text-[10px] font-medium">
+                        <span className="chip chip-uv !px-2 !py-0.5 text-[9.5px] font-medium">
                           {s.duration}
                         </span>
                       </div>
                     </div>
 
                     {/* Title & Lead */}
-                    <h3 className="type-display text-[1.02rem] font-bold leading-snug text-foreground">
+                    <h3 className="type-display text-[1.05rem] font-bold leading-snug text-foreground">
                       {s.title}
                     </h3>
-                    <p className="mt-1 text-[12px] font-medium leading-relaxed text-muted-foreground">
+                    <p className="mt-0.5 text-[11.5px] font-normal leading-snug text-muted-foreground">
                       {s.lead}
                     </p>
 
                     {/* Actionable Tasks List */}
-                    <ul className="mt-3 space-y-1.5">
+                    <ul className="mt-2.5 space-y-1">
                       {s.tasks.map((task) => (
                         <li
                           key={task}
-                          className="flex items-start gap-2 text-[11.5px] leading-snug text-foreground/85"
+                          className="flex items-start gap-1.5 text-[11px] leading-snug text-foreground/85"
                         >
                           <span className="mt-0.5 inline-flex h-3 w-3 shrink-0 items-center justify-center rounded-full bg-uv/15 text-uv-deep">
                             <Check className="h-1.5 w-1.5" strokeWidth={3.5} />
@@ -225,14 +220,14 @@ export function Process() {
                   </div>
 
                   {/* Deliverable Footer */}
-                  <div className="mt-4 border-t border-border/70 pt-3">
-                    <div className="flex items-start gap-2">
+                  <div className="mt-3 border-t border-border/70 pt-2.5">
+                    <div className="flex items-start gap-1.5">
                       <PackageCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-uv" />
                       <div className="min-w-0 flex-1">
-                        <span className="mono-cap block text-[9px] text-muted-foreground">
+                        <span className="mono-cap block text-[8.5px] text-muted-foreground">
                           Deliverable
                         </span>
-                        <span className="block text-[11.5px] font-semibold leading-tight text-foreground">
+                        <span className="block text-[11px] font-semibold leading-tight text-foreground">
                           {s.deliverable}
                         </span>
                       </div>
