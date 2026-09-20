@@ -111,18 +111,18 @@ const groups: Group[] = [
 
 function Chip({ item }: { item: Item }) {
   const isInternal = item.url?.startsWith("#");
-  const cls = `chip !py-1.5 !px-3 text-[12.5px] transition-all duration-300 flex items-center gap-2 cursor-pointer ${
+  const cls = `chip !py-1 !px-2.5 text-[12px] transition-all duration-300 flex items-center gap-1.5 cursor-pointer ${
     item.primary
       ? "chip-uv font-medium hover:-translate-y-0.5 hover:shadow-xs hover:border-uv/50"
       : "text-muted-foreground hover:border-uv/40 hover:text-foreground hover:-translate-y-0.5 hover:bg-foreground/[0.02]"
   }`;
   const inner = (
     <>
-      <ToolLogo name={item.name} url={item.url} size={16} />
+      <ToolLogo name={item.name} url={item.url} size={15} />
       <span>{item.name}</span>
       {item.url && !isInternal && (
         <ExternalLink
-          className="h-3 w-3 shrink-0 opacity-40 transition-all duration-200 group-hover:opacity-100 group-hover:text-uv"
+          className="h-2.5 w-2.5 shrink-0 opacity-40 transition-all duration-200 group-hover:opacity-100 group-hover:text-uv"
           strokeWidth={2}
           aria-hidden
         />
@@ -150,30 +150,30 @@ function GroupBlock({ g }: { g: Group }) {
 
   return (
     <div
-      className={`${isFlagship ? "pane-uv" : "pane"} pane-lift group flex h-full flex-col p-6 sm:p-7 ${
-        isFlagship ? "sm:p-9" : ""
+      className={`${isFlagship ? "pane-uv" : "pane"} pane-lift group flex h-full flex-col p-4.5 sm:p-5.5 ${
+        isFlagship ? "sm:p-7" : ""
       }`}
     >
-      <div className="flex items-start justify-between gap-4">
+      <div className="flex items-start justify-between gap-3">
         <h3
-          className={`type-display text-foreground ${
+          className={`type-display text-foreground font-bold ${
             isFlagship
-              ? "text-[clamp(1.8rem,3.2vw,2.6rem)]"
+              ? "text-[clamp(1.5rem,2.6vw,2.1rem)]"
               : g.span === "wide"
-                ? "text-[clamp(1.4rem,2.1vw,1.85rem)]"
-                : "text-[clamp(1.25rem,1.8vw,1.5rem)]"
+                ? "text-[clamp(1.2rem,1.7vw,1.55rem)]"
+                : "text-[clamp(1.1rem,1.4vw,1.3rem)]"
           }`}
         >
           {g.title}
         </h3>
-        <span className="tnum mono-cap mt-1.5 shrink-0 text-uv/70">{g.index}</span>
+        <span className="tnum mono-cap mt-1 shrink-0 text-[11px] text-uv/70">{g.index}</span>
       </div>
 
-      <p className="mt-3.5 max-w-[44ch] text-[13.5px] leading-relaxed text-muted-foreground">
+      <p className="mt-2.5 max-w-[44ch] text-[12.5px] leading-relaxed text-muted-foreground font-medium">
         {g.note}
       </p>
 
-      <div className="mt-6 flex flex-wrap gap-2">
+      <div className="mt-4.5 flex flex-wrap gap-1.5">
         {g.items.map((item) => (
           <Chip key={item.name} item={item} />
         ))}

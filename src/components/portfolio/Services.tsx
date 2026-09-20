@@ -130,14 +130,14 @@ function Detail({ s }: { s: Service }) {
       {/* Ambient background bloom */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -top-8 -right-8 -z-10 h-48 w-48 rounded-full bg-linear-to-br from-uv/20 to-cyan-edge/15 blur-3xl opacity-60"
+        className="pointer-events-none absolute -top-8 -right-8 -z-10 h-44 w-44 rounded-full bg-linear-to-br from-uv/20 to-cyan-edge/15 blur-3xl opacity-60"
       />
 
       {/* Header Row */}
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div className="flex items-center gap-3">
-          <span className="inline-flex h-12 w-12 items-center justify-center rounded-2xl border border-white/70 bg-linear-to-br from-uv-bright to-uv text-white shadow-[0_10px_24px_-10px_var(--uv)]">
-            <s.icon className="h-6 w-6" strokeWidth={1.8} aria-hidden />
+          <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/70 bg-linear-to-br from-uv-bright to-uv text-white shadow-[0_8px_20px_-8px_var(--uv)]">
+            <s.icon className="h-5 w-5" strokeWidth={1.8} aria-hidden />
           </span>
           <div>
             <span className="chip chip-uv !px-2.5 !py-0.5 text-[11px] font-semibold mono-cap">
@@ -146,37 +146,37 @@ function Detail({ s }: { s: Service }) {
           </div>
         </div>
 
-        <span className="chip !px-3 !py-1 text-[11.5px] font-medium text-muted-foreground flex items-center gap-1.5">
+        <span className="chip !px-2.5 !py-1 text-[11px] font-medium text-muted-foreground flex items-center gap-1.5">
           <Clock className="h-3.5 w-3.5 text-uv" />
           <span>3–4 Days Turnaround</span>
         </span>
       </div>
 
       {/* Main Title */}
-      <h3 className="type-display mt-6 text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-foreground leading-tight">
+      <h3 className="type-display mt-4 text-[clamp(1.5rem,2.5vw,2.1rem)] font-bold text-foreground leading-tight">
         {s.title}
       </h3>
 
       {/* Description */}
-      <p className="mt-3.5 text-[15px] leading-[1.7] text-muted-foreground font-normal">
+      <p className="mt-2.5 text-[14px] leading-[1.65] text-muted-foreground font-normal">
         {s.desc}
       </p>
 
       {/* Capabilities Grid */}
-      <div className="mt-7">
-        <p className="mono-cap text-[11px] font-bold text-muted-foreground mb-3">
+      <div className="mt-5">
+        <p className="mono-cap text-[10.5px] font-bold text-muted-foreground mb-2.5">
           Core Capabilities &amp; Specs
         </p>
-        <div className="grid gap-2.5 sm:grid-cols-2">
+        <div className="grid gap-2 sm:grid-cols-2">
           {s.points.map((p) => (
             <div
               key={p}
-              className="flex items-start gap-3 rounded-xl border border-border/80 bg-white/65 p-3.5 backdrop-blur-sm transition-all duration-300 hover:border-uv/30 hover:bg-white/85"
+              className="flex items-start gap-2.5 rounded-xl border border-border/80 bg-white/65 p-2.5 sm:p-3 backdrop-blur-sm transition-all duration-300 hover:border-uv/30 hover:bg-white/85"
             >
-              <span className="mt-0.5 inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-lg bg-uv/15 text-uv-deep">
-                <Check className="h-3 w-3" strokeWidth={3} />
+              <span className="mt-0.5 inline-flex h-4.5 w-4.5 shrink-0 items-center justify-center rounded-md bg-uv/15 text-uv-deep">
+                <Check className="h-2.5 w-2.5" strokeWidth={3} />
               </span>
-              <span className="text-[13px] font-medium leading-snug text-foreground/90">
+              <span className="text-[12.5px] font-medium leading-snug text-foreground/90">
                 {p}
               </span>
             </div>
@@ -185,16 +185,16 @@ function Detail({ s }: { s: Service }) {
       </div>
 
       {/* Deliverable + Action Bar */}
-      <div className="mt-8 rounded-2xl border border-border/80 bg-foreground/[0.02] p-5 sm:p-6 backdrop-blur-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div className="flex items-start gap-3">
-          <div className="mt-0.5 inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-uv/15 text-uv-deep">
-            <PackageCheck className="h-5 w-5" strokeWidth={1.8} />
+      <div className="mt-6 rounded-xl border border-border/80 bg-foreground/[0.02] p-4 sm:p-4.5 backdrop-blur-sm flex flex-col sm:flex-row sm:items-center justify-between gap-3.5">
+        <div className="flex items-start gap-2.5">
+          <div className="mt-0.5 inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-uv/15 text-uv-deep">
+            <PackageCheck className="h-4 w-4" strokeWidth={1.8} />
           </div>
           <div>
-            <span className="mono-cap block text-[10px] text-muted-foreground">
+            <span className="mono-cap block text-[9.5px] text-muted-foreground">
               What you receive
             </span>
-            <span className="mt-0.5 block text-[14.5px] font-semibold text-foreground">
+            <span className="mt-0.5 block text-[13.5px] font-semibold text-foreground">
               {s.deliverable}
             </span>
           </div>
@@ -202,10 +202,10 @@ function Detail({ s }: { s: Service }) {
 
         <a
           href="#contact"
-          className="btn btn-uv shrink-0 !px-5 !py-2.5 text-[13px] flex items-center gap-1.5"
+          className="btn btn-uv shrink-0 !px-4 !py-2 text-[12.5px] flex items-center gap-1.5"
         >
           <span>Discuss this</span>
-          <ArrowUpRight className="h-4 w-4" />
+          <ArrowUpRight className="h-3.5 w-3.5" />
         </a>
       </div>
     </div>
@@ -246,36 +246,36 @@ export function Services() {
                       onClick={() => setActive(i)}
                       aria-expanded={isOpen}
                       aria-controls={`service-${i}`}
-                      className={`group relative flex w-full items-center justify-between gap-3.5 rounded-2xl p-3.5 sm:p-4 text-left transition-all duration-300 ${
+                      className={`group relative flex w-full items-center justify-between gap-3 rounded-xl p-3 sm:p-3.5 text-left transition-all duration-300 ${
                         isOpen
                           ? "pane-uv border-uv/40 shadow-[0_8px_24px_-10px_var(--uv)] ring-1 ring-uv/30"
                           : "pane hover:border-uv/30 hover:bg-white/90 hover:-translate-y-0.5"
                       }`}
                     >
-                      <div className="flex items-center gap-3.5 min-w-0">
+                      <div className="flex items-center gap-3 min-w-0">
                         {/* Icon Frame */}
                         <span
-                          className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border transition-all duration-300 ${
+                          className={`inline-flex h-9.5 w-9.5 shrink-0 items-center justify-center rounded-lg border transition-all duration-300 ${
                             isOpen
                               ? "border-white/60 bg-linear-to-br from-uv-bright to-uv text-white shadow-xs"
                               : "border-border/80 bg-foreground/[0.03] text-foreground/75 group-hover:border-uv/30 group-hover:text-uv"
                           }`}
                         >
-                          <s.icon className="h-5 w-5" strokeWidth={1.8} aria-hidden />
+                          <s.icon className="h-4.5 w-4.5" strokeWidth={1.8} aria-hidden />
                         </span>
 
                         {/* Title & Tagline */}
                         <div className="min-w-0">
                           <div className="flex items-center gap-2">
                             <span
-                              className={`font-mono text-[11px] font-bold transition-colors ${
+                              className={`font-mono text-[10.5px] font-bold transition-colors ${
                                 isOpen ? "text-uv-deep" : "text-muted-foreground/60"
                               }`}
                             >
                               {String(i + 1).padStart(2, "0")}
                             </span>
                             <span
-                              className={`type-display truncate text-[1.1rem] font-bold transition-colors ${
+                              className={`type-display truncate text-[1.02rem] font-bold transition-colors ${
                                 isOpen
                                   ? "text-uv-deep"
                                   : "text-foreground group-hover:text-foreground"
@@ -284,7 +284,7 @@ export function Services() {
                               {s.title}
                             </span>
                           </div>
-                          <p className="mt-0.5 truncate text-[12px] font-medium text-muted-foreground">
+                          <p className="mt-0.5 truncate text-[11.5px] font-medium text-muted-foreground">
                             {s.tagline}
                           </p>
                         </div>
@@ -293,18 +293,18 @@ export function Services() {
                       {/* Right Tag / Indicator */}
                       <div className="flex items-center gap-2 shrink-0">
                         {s.featured && (
-                          <span className="chip chip-uv !px-2.5 !py-0.5 text-[10.5px] font-semibold">
+                          <span className="chip chip-uv !px-2.5 !py-0.5 text-[10px] font-semibold">
                             Flagship
                           </span>
                         )}
                         <div
-                          className={`flex h-7 w-7 items-center justify-center rounded-full transition-all duration-300 ${
+                          className={`flex h-6.5 w-6.5 items-center justify-center rounded-full transition-all duration-300 ${
                             isOpen
                               ? "bg-uv/15 text-uv-deep"
                               : "text-muted-foreground/40 group-hover:text-foreground group-hover:translate-x-0.5"
                           }`}
                         >
-                          <ArrowRight className="h-3.5 w-3.5" strokeWidth={2.2} />
+                          <ArrowRight className="h-3 w-3" strokeWidth={2.2} />
                         </div>
                       </div>
                     </button>
@@ -317,7 +317,7 @@ export function Services() {
                       }`}
                     >
                       <div className="overflow-hidden">
-                        <div className="mt-2.5 rounded-2xl pane p-5 sm:p-6">
+                        <div className="mt-2.5 rounded-xl pane p-4 sm:p-5">
                           <Detail s={s} />
                         </div>
                       </div>
@@ -337,7 +337,7 @@ export function Services() {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -12 }}
                 transition={{ duration: 0.38, ease: [0.22, 1, 0.36, 1] }}
-                className="pane p-8 relative overflow-hidden backdrop-blur-xl border border-white/80 shadow-[0_20px_50px_-20px_rgba(124,58,237,0.12)]"
+                className="pane p-6 sm:p-7 relative overflow-hidden backdrop-blur-xl border border-white/80 shadow-[0_20px_50px_-20px_rgba(124,58,237,0.12)]"
               >
                 <Detail s={current} />
               </motion.div>

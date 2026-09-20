@@ -115,16 +115,16 @@ export function About() {
 
             {/* Traits */}
             <Reveal delay={3}>
-              <dl className="mt-9 grid gap-2.5">
+              <dl className="mt-7 grid gap-2">
                 {traits.map((t) => (
                   <div
                     key={t.k}
-                    className="pane-soft group flex flex-wrap items-center justify-between gap-x-6 gap-y-1 px-5 py-3.5 transition-colors duration-300 hover:border-uv/25"
+                    className="pane-soft group flex flex-wrap items-center justify-between gap-x-5 gap-y-1 px-4 py-2.5 transition-colors duration-300 hover:border-uv/25"
                   >
                     <dt className="mono-cap text-foreground/75 transition-colors duration-300 group-hover:text-uv-deep">
                       {t.k}
                     </dt>
-                    <dd className="text-[14.5px] text-muted-foreground">{t.v}</dd>
+                    <dd className="text-[13.5px] text-muted-foreground">{t.v}</dd>
                   </div>
                 ))}
               </dl>
@@ -132,19 +132,19 @@ export function About() {
 
             {/* Stats */}
             <Reveal delay={4}>
-              <div className="mt-10 grid grid-cols-2 gap-3 sm:grid-cols-4">
+              <div className="mt-8 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
                 {stats.map((s) => (
                   <div
                     key={s.label}
-                    className={`${s.wide ? "pane-uv col-span-2" : "pane"} p-5`}
+                    className={`${s.wide ? "pane-uv col-span-2" : "pane"} p-4 sm:p-4.5`}
                   >
-                    <p className="tnum type-display text-[clamp(2.2rem,5vw,3.2rem)] text-foreground">
+                    <p className="tnum type-display text-[clamp(1.9rem,4.2vw,2.8rem)] font-bold text-foreground">
                       {s.value}
                       <span className="ml-1 align-top text-[0.35em] text-muted-foreground">
                         {s.unit}
                       </span>
                     </p>
-                    <p className="mono-cap mt-2.5 text-muted-foreground">{s.label}</p>
+                    <p className="mono-cap mt-1.5 text-[11px] text-muted-foreground">{s.label}</p>
                   </div>
                 ))}
               </div>

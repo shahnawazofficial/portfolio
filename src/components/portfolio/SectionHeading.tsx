@@ -57,7 +57,7 @@ export function SectionHeading({
 
         <h2
           id={id}
-          className="type-display mt-6 text-[clamp(2.3rem,6.2vw,4.5rem)] text-foreground"
+          className="type-display mt-5 text-[clamp(2.55rem,6.8vw,4.85rem)] font-bold tracking-[-0.035em] leading-[1.05] text-foreground"
         >
           <RevealLines text={title} as="span" className="block" />
           {titleAccent && (

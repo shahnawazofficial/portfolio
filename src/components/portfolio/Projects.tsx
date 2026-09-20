@@ -476,7 +476,7 @@ export function Projects() {
                   Work
                 </span>
               </span>
-              <h2 className="type-display mt-4 text-[clamp(1.9rem,4.4vw,3.1rem)] text-foreground">
+              <h2 className="type-display mt-4 text-[clamp(2.35rem,6vw,4.5rem)] font-bold tracking-[-0.035em] leading-[1.05] text-foreground">
                 Selected work, <span className="uv-text">2025&nbsp;&mdash;&nbsp;2026.</span>
               </h2>
             </div>

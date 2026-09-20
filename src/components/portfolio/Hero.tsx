@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { ArrowDown, ArrowRight, ArrowUpRight, Sparkles } from "lucide-react";
 import Aurora from "@/components/Aurora";
-import BlurText from "@/components/BlurText";
 
 export function Hero() {
   const [mounted, setMounted] = useState(false);
@@ -65,24 +64,15 @@ export function Hero() {
             </span>
           </motion.div>
 
-          <h1 className="type-display mt-8 text-[clamp(2.9rem,9vw,6.6rem)] text-foreground">
-            <BlurText
-              as="span"
-              text="Directing cinematic"
-              animateBy="words"
-              direction="top"
-              delay={110}
-              className="justify-center"
-            />
-            <BlurText
-              as="span"
-              text="AI micro-dramas & films"
-              animateBy="words"
-              direction="top"
-              delay={110}
-              className="uv-text justify-center"
-            />
-          </h1>
+          <motion.h1
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.75, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
+            className="type-display mt-7 text-[clamp(2.85rem,8.5vw,6.5rem)] font-bold tracking-[-0.035em] leading-[1.04] text-foreground"
+          >
+            Directing Cinematic <br className="hidden sm:inline" />
+            <span className="uv-text">AI Micro-Dramas</span> &amp; Films
+          </motion.h1>
 
           <motion.p
             initial={{ opacity: 0, y: 22 }}

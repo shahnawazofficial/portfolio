@@ -179,41 +179,41 @@ export function Contact() {
 
         <div className="mt-14 grid gap-5 sm:mt-16 lg:grid-cols-[0.9fr_1.1fr]">
           {/* Reach */}
-          <div className="flex min-w-0 flex-col gap-4">
+          <div className="flex min-w-0 flex-col gap-3.5">
             <Reveal>
-              <div className="pane flex flex-wrap items-center gap-x-6 gap-y-3 px-5 py-4">
-                <span className="inline-flex items-center gap-2.5">
+              <div className="pane flex flex-wrap items-center gap-x-5 gap-y-2 px-4 py-3">
+                <span className="inline-flex items-center gap-2">
                   <span className="status-dot" aria-hidden />
-                  <span className="mono-cap text-foreground/75">Open for 2026 work</span>
+                  <span className="mono-cap text-[11px] text-foreground/75">Open for 2026 work</span>
                 </span>
-                <span className="mono-cap inline-flex items-center gap-2 text-muted-foreground">
+                <span className="mono-cap inline-flex items-center gap-1.5 text-[11px] text-muted-foreground">
                   <Clock className="h-3.5 w-3.5" strokeWidth={1.7} /> Replies within 24h
                 </span>
               </div>
             </Reveal>
 
-            <div className="grid min-w-0 gap-3">
+            <div className="grid min-w-0 gap-2.5">
               {contacts.map((c, i) => (
                 <Reveal key={c.label} delay={i}>
                   <a
                     href={c.href}
                     target={c.external ? "_blank" : undefined}
                     rel={c.external ? "noreferrer" : undefined}
-                    className="pane pane-lift group flex items-center gap-4 p-4 sm:p-5"
+                    className="pane pane-lift group flex items-center gap-3.5 p-3 sm:p-3.5"
                   >
-                    <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-2xl border border-white/70 bg-white/60 text-uv-deep transition-all duration-300 group-hover:border-transparent group-hover:bg-linear-to-br group-hover:from-uv-bright group-hover:to-uv group-hover:text-white">
-                      <c.icon className="h-[18px] w-[18px]" strokeWidth={1.7} />
+                    <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-white/70 bg-white/60 text-uv-deep transition-all duration-300 group-hover:border-transparent group-hover:bg-linear-to-br group-hover:from-uv-bright group-hover:to-uv group-hover:text-white">
+                      <c.icon className="h-4 w-4" strokeWidth={1.7} />
                     </span>
                     <div className="min-w-0 flex-1">
-                      <p className="mono-cap text-muted-foreground">{c.label}</p>
-                      <p className="mt-1 text-[15px] font-medium [overflow-wrap:anywhere]">
+                      <p className="mono-cap text-[10px] text-muted-foreground">{c.label}</p>
+                      <p className="mt-0.5 text-[13.5px] font-medium [overflow-wrap:anywhere]">
                         {c.value}
                       </p>
                     </div>
                     {c.download ? (
-                      <Download className="h-4 w-4 shrink-0 text-muted-foreground transition-colors duration-300 group-hover:text-uv" />
+                      <Download className="h-3.5 w-3.5 shrink-0 text-muted-foreground transition-colors duration-300 group-hover:text-uv" />
                     ) : (
-                      <ArrowUpRight className="h-4 w-4 shrink-0 text-muted-foreground transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-uv motion-reduce:transform-none" />
+                      <ArrowUpRight className="h-3.5 w-3.5 shrink-0 text-muted-foreground transition-all duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-uv motion-reduce:transform-none" />
                     )}
                   </a>
                 </Reveal>
@@ -224,12 +224,12 @@ export function Contact() {
           {/* Brief */}
           <Reveal delay={1} className="min-w-0">
             {submitted ? (
-              <div className="pane flex flex-col items-center justify-center p-8 text-center sm:p-12">
-                <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-500/10 text-emerald-600 ring-1 ring-emerald-500/25">
-                  <CheckCircle2 className="h-7 w-7" />
+              <div className="pane flex flex-col items-center justify-center p-6 text-center sm:p-8">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-600 ring-1 ring-emerald-500/25">
+                  <CheckCircle2 className="h-6 w-6" />
                 </div>
-                <h3 className="type-title mt-4 text-xl font-semibold">Message delivered!</h3>
-                <p className="mt-2 max-w-sm text-sm text-muted-foreground">
+                <h3 className="type-title mt-3.5 text-lg font-semibold">Message delivered!</h3>
+                <p className="mt-1.5 max-w-sm text-[13px] text-muted-foreground">
                   Your brief has been forwarded directly to{" "}
                   <span className="font-medium text-foreground">khanshahnawazmoh@gmail.com</span>.
                   I review every project brief personally and reply within 24 hours.
@@ -237,13 +237,13 @@ export function Contact() {
                 <button
                   type="button"
                   onClick={() => setSubmitted(false)}
-                  className="btn btn-ghost mt-6 text-xs text-muted-foreground hover:text-foreground"
+                  className="btn btn-ghost mt-5 text-xs text-muted-foreground hover:text-foreground"
                 >
                   Send another message &rarr;
                 </button>
               </div>
             ) : (
-              <form onSubmit={onSubmit} className="pane p-6 sm:p-8">
+              <form onSubmit={onSubmit} className="pane p-5 sm:p-6">
                 <p className="mono-cap text-muted-foreground">Start a brief</p>
 
                 <div className="mt-6 grid gap-4 sm:grid-cols-2">

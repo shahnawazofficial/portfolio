@@ -123,26 +123,26 @@ export function Process() {
                     key={s.step}
                     type="button"
                     onClick={() => setActiveIndex(i)}
-                    className={`group relative flex flex-col items-start rounded-xl p-3.5 text-left transition-all duration-300 ${
+                    className={`group relative flex flex-col items-start rounded-lg p-2.5 sm:p-3 text-left transition-all duration-300 ${
                       isActive
                         ? "border border-uv/35 bg-linear-to-br from-uv/12 to-uv/4 shadow-xs"
                         : "border border-transparent hover:bg-foreground/[0.03]"
                     }`}
                   >
-                    <div className="mb-2 flex w-full items-center justify-between">
+                    <div className="mb-1.5 flex w-full items-center justify-between">
                       <span
-                        className={`mono-cap text-[11px] font-bold transition-colors ${
+                        className={`mono-cap text-[10.5px] font-bold transition-colors ${
                           isActive ? "text-uv-deep" : "text-muted-foreground/70"
                         }`}
                       >
                         Stage {s.step}
                       </span>
-                      <span className="chip !px-2 !py-0.5 mono-cap text-[10px]">
+                      <span className="chip !px-2 !py-0.2 mono-cap text-[9.5px]">
                         {s.duration}
                       </span>
                     </div>
                     <span
-                      className={`w-full truncate text-[13px] font-semibold transition-colors ${
+                      className={`w-full truncate text-[12.5px] font-semibold transition-colors ${
                         isActive
                           ? "text-foreground"
                           : "text-foreground/70 group-hover:text-foreground"
@@ -165,58 +165,58 @@ export function Process() {
         </div>
 
         {/* 5-Stage Workflow Cards Grid */}
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 xl:gap-3.5">
+        <div className="mt-8 grid gap-3.5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 xl:gap-3">
           {steps.map((s, i) => {
             const isSelected = i === activeIndex;
             return (
               <Reveal key={s.step} delay={i}>
                 <div
                   onMouseEnter={() => setActiveIndex(i)}
-                  className={`group relative flex h-full flex-col justify-between rounded-2xl p-5 transition-all duration-300 sm:p-6 ${
+                  className={`group relative flex h-full flex-col justify-between rounded-xl p-4 transition-all duration-300 sm:p-4.5 ${
                     isSelected
-                      ? "pane-uv border-uv/40 ring-1 ring-uv/30 shadow-[0_12px_28px_-12px_var(--uv)]"
+                      ? "pane-uv border-uv/40 ring-1 ring-uv/30 shadow-[0_10px_24px_-10px_var(--uv)]"
                       : "pane hover:-translate-y-1 hover:border-uv/25"
                   }`}
                 >
                   <div>
                     {/* Header */}
-                    <div className="mb-4 flex items-center justify-between gap-3">
+                    <div className="mb-3 flex items-center justify-between gap-2.5">
                       <span
-                        className={`inline-flex h-10 w-10 items-center justify-center rounded-xl border transition-all duration-300 ${
+                        className={`inline-flex h-8.5 w-8.5 items-center justify-center rounded-lg border transition-all duration-300 ${
                           isSelected
                             ? "border-white/60 bg-linear-to-br from-uv-bright to-uv text-white shadow-xs"
                             : "border-border/80 bg-foreground/[0.03] text-foreground/80 group-hover:border-uv/30 group-hover:text-uv"
                         }`}
                       >
-                        <s.icon className="h-4 w-4" strokeWidth={1.8} aria-hidden />
+                        <s.icon className="h-3.5 w-3.5" strokeWidth={1.8} aria-hidden />
                       </span>
                       <div className="flex items-center gap-1.5">
-                        <span className="mono-cap text-[11px] font-bold text-muted-foreground/60">
+                        <span className="mono-cap text-[10.5px] font-bold text-muted-foreground/60">
                           {s.step}
                         </span>
-                        <span className="chip chip-uv !px-2 !py-0.5 text-[10.5px] font-medium">
+                        <span className="chip chip-uv !px-2 !py-0.5 text-[10px] font-medium">
                           {s.duration}
                         </span>
                       </div>
                     </div>
 
                     {/* Title & Lead */}
-                    <h3 className="type-display text-[1.15rem] font-bold leading-snug text-foreground">
+                    <h3 className="type-display text-[1.02rem] font-bold leading-snug text-foreground">
                       {s.title}
                     </h3>
-                    <p className="mt-1.5 text-[12.5px] font-medium leading-relaxed text-muted-foreground">
+                    <p className="mt-1 text-[12px] font-medium leading-relaxed text-muted-foreground">
                       {s.lead}
                     </p>
 
                     {/* Actionable Tasks List */}
-                    <ul className="mt-4 space-y-2">
+                    <ul className="mt-3 space-y-1.5">
                       {s.tasks.map((task) => (
                         <li
                           key={task}
-                          className="flex items-start gap-2 text-[12px] leading-snug text-foreground/85"
+                          className="flex items-start gap-2 text-[11.5px] leading-snug text-foreground/85"
                         >
-                          <span className="mt-0.5 inline-flex h-3.5 w-3.5 shrink-0 items-center justify-center rounded-full bg-uv/15 text-uv-deep">
-                            <Check className="h-2 w-2" strokeWidth={3.5} />
+                          <span className="mt-0.5 inline-flex h-3 w-3 shrink-0 items-center justify-center rounded-full bg-uv/15 text-uv-deep">
+                            <Check className="h-1.5 w-1.5" strokeWidth={3.5} />
                           </span>
                           <span>{task}</span>
                         </li>
@@ -225,14 +225,14 @@ export function Process() {
                   </div>
 
                   {/* Deliverable Footer */}
-                  <div className="mt-5 border-t border-border/70 pt-3.5">
+                  <div className="mt-4 border-t border-border/70 pt-3">
                     <div className="flex items-start gap-2">
                       <PackageCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-uv" />
                       <div className="min-w-0 flex-1">
-                        <span className="mono-cap block text-[9.5px] text-muted-foreground">
+                        <span className="mono-cap block text-[9px] text-muted-foreground">
                           Deliverable
                         </span>
-                        <span className="block text-[12px] font-semibold leading-tight text-foreground">
+                        <span className="block text-[11.5px] font-semibold leading-tight text-foreground">
                           {s.deliverable}
                         </span>
                       </div>
